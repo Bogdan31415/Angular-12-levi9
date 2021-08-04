@@ -18,5 +18,5 @@ export interface User {
   website: string
   address: Address,
   company: Company,
-  isActive?: boolean
+  isActive: boolean
 }

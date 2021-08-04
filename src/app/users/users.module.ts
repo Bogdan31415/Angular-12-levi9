@@ -4,7 +4,6 @@ import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 
 import { UserListComponent } from './components/user-list/user-list.component';
-import { UsersRouting } from "./users-routing.module";
 import { UserModule } from "../shared/modules/user/user.module";
 import { reducers } from "./store/reducers";
 import { GetUsersEffect } from "./store/effects/get-users.effect";
@@ -19,7 +18,6 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
   ],
   imports: [
     CommonModule,
-    UsersRouting,
     StoreModule.forFeature('users', reducers),
     EffectsModule.forFeature([GetUsersEffect]),
     UserModule,

@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.action-progress {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.empty-date {
+  padding-top: 15px;
+  text-align: center;
+}

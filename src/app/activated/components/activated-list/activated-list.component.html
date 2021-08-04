@@ -1,5 +1,12 @@
-<app-user></app-user>
+<div class="container" *ngIf="!(activatedUserService.isDataEmpty$ | async); else emptyData">
+  <h1>Users</h1>
+  <app-user
+    *ngFor='let user of this.activatedUserService.users$ | async'
+    [user]='user'
+    (onClick)="changeActivated($event)"
+  ></app-user>
+</div>
 
-<app-post></app-post>
-
-<app-photo></app-photo>
+<ng-template #emptyData="">
+  <div class="empty-date"> There Are No Data</div>
+</ng-template>

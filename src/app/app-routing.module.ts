@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { UserListComponent } from "./users/components/user-list/user-list.component";
+import { PostListComponent } from "./posts/components/post-list/post-list.component";
+
 const routes: Routes = [
   {
     path: '',
@@ -14,13 +17,11 @@ const routes: Routes = [
   },
   {
     path: "users",
-    loadChildren: () =>
-      import("./users/users.module").then(m => m.UsersModule)
+    component: UserListComponent
   },
   {
     path: "posts",
-    loadChildren: () =>
-      import("./posts/posts.module").then(m => m.PostsModule)
+    component: PostListComponent
   },
   {
     path: "photos",

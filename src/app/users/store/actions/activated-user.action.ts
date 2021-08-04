@@ -5,5 +5,5 @@ import { User } from "../../../shared/types/user.entity";
 
 export const setActivedUserAction = createAction(
   ActionTypes.ACTIVATED_USERS,
-  props<{ user: User }>()
+  props<{ users: User[] }>()
 )

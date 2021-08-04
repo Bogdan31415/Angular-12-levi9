@@ -7,7 +7,7 @@
       {{post.body}}
     </p>
   </mat-card-content>
-  <mat-card-actions *ngIf='isActive$; else active'>
+  <mat-card-actions *ngIf='post.isActive; else active'>
     <button (click)='deactivate(post)' class='active' mat-button>DEACTIVATE</button>
   </mat-card-actions>
   <ng-template #active>

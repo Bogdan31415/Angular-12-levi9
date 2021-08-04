@@ -12,6 +12,8 @@ import { environment } from '../environments/environment';
 import { NavigationBarModule } from "./shared/modules/navigation-bar/navigation-bar.module";
 import { MaterialModule } from "./material.module";
 import { HeaderModule } from "./shared/modules/header/header.module";
+import { UsersModule } from "./users/users.module";
+import { PostsModule } from "./posts/posts.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { HeaderModule } from "./shared/modules/header/header.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    UsersModule,
+    PostsModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),

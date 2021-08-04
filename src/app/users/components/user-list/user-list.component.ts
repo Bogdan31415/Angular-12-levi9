@@ -2,6 +2,7 @@ import { Component, OnInit, Self } from '@angular/core';
 
 import { UserSelfService } from "../../services/user-self.service";
 import { User } from "../../../shared/types/user.entity";
+import { usersSelector } from "../../store/selectors";
 
 @Component({
   selector: 'app-user-list',
@@ -16,10 +17,10 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     this.userService.fetchData();
     this.userService.initializeValues()
-    this.userService.initializeListeners()
+    this.userService.initializeListeners(usersSelector)
   }
 
-  public changeActivated(activatedUser: User) {
-    this.userService.changeUserActivated(activatedUser)
+  public changeActivated(user: User) {
+    this.userService.changeUserActivated(user)
   }
 }

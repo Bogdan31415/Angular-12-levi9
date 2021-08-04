@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
-import { catchError, map, switchMap } from 'rxjs/operators'
-import { of } from 'rxjs'
+import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators'
+import { EMPTY, of } from 'rxjs'
 
 import { User } from "../../../shared/types/user.entity";
 import { getUsersAction, getUsersFailureAction, getUsersSuccessAction } from "../actions/get-users.action";
 import { UserService } from "../../services/user.service";
+import { select, Store } from "@ngrx/store";
+import { isLoadedSelector } from "../selectors";
 
 
 @Injectable()
@@ -13,14 +15,18 @@ export class GetUsersEffect {
   getArticle$ = createEffect(() => {
       return this.actions$.pipe(
         ofType(getUsersAction),
-        switchMap(() => {
+        withLatestFrom(this.store.pipe(select(isLoadedSelector))),
+        switchMap(([, loaded]) => {
+          if (loaded) {
+            return EMPTY
+          }
           return this.userService.getUser().pipe(
             map((users: User[]) => {
-              return getUsersSuccessAction({ users })
+              return getUsersSuccessAction({ users });
             }),
 
-            catchError(() => {
-              return of(getUsersFailureAction())
+            catchError((err) => {
+              return of(getUsersFailureAction({ error: err }));
             })
           )
         })
@@ -29,7 +35,8 @@ export class GetUsersEffect {
   )
 
   constructor(
-    private actions$: Actions,
-    private userService: UserService
+    private readonly store: Store,
+    private readonly actions$: Actions,
+    private readonly userService: UserService
   ) {}
 }

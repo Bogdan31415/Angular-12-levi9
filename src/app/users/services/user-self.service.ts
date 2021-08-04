@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from "@ngrx/store";
 import { getUsersAction } from "../store/actions/get-users.action";
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
 
 import { User } from "../../shared/types/user.entity";
-import { errorSelector, isLoadingSelector, selectIsDataEmpty, usersSelector } from "../store/selectors";
-import { setActivedUserAction } from "../store/actions/activated-user.action";
+import { errorSelector, isLoadingSelector, selectIsDataEmpty } from "../store/selectors";
+import { BaseUserSelfService } from "../../shared/services/base-user-self.service";
 
 @Injectable()
-export class UserSelfService {
+export class UserSelfService extends BaseUserSelfService {
   public isLoading$!: Observable<boolean>;
   public error$!: Observable<string | null>;
-  public users$!: Observable<User[] | null>;
   public isDataEmpty$!: Observable<boolean>;
 
-  constructor(private store: Store) { }
+  constructor(store: Store) {
+    super(store)
+  }
 
   public fetchData(): void {
     this.store.dispatch(getUsersAction());
@@ -24,16 +25,5 @@ export class UserSelfService {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.error$ = this.store.pipe(select(errorSelector));
     this.isDataEmpty$ = this.store.pipe(select(selectIsDataEmpty));
-  }
-
-  public initializeListeners(): void {
-    this.users$ = this.store.pipe(select(usersSelector));
-  }
-
-  public changeUserActivated(activatedUser: User) {
-    const clone = {
-      user: Object.assign({}, activatedUser)
-    };
-    this.store.dispatch(setActivedUserAction(clone))
   }
 }

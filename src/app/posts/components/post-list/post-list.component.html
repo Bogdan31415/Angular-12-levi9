@@ -1,1 +1,17 @@
-<p>post-list works!</p>
+<div class="action-progress" *ngIf="this.postService.isLoading$ | async">
+  <mat-spinner></mat-spinner>
+</div>
+
+<ng-template #emptyData="">
+  <div class="empty-date"> There Are No Data</div>
+</ng-template>
+
+<div class="container" *ngIf="!(postService.isDataEmpty$ | async); else emptyData">
+  <h1>Posts</h1>
+  <app-post
+    *ngFor='let post of this.postService.posts$ | async'
+    [post]='post'
+    (onClick)="changeActivated($event)"
+  ></app-post>
+</div>
+

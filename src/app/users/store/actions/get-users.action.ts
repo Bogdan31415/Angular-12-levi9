@@ -12,5 +12,6 @@ export const getUsersSuccessAction = createAction(
 )
 
 export const getUsersFailureAction = createAction(
-  ActionTypes.GET_USERS_FAILURE
+  ActionTypes.GET_USERS_FAILURE,
+  props<{error: string}>()
 )

@@ -3,7 +3,7 @@
 </div>
 
 <ng-template #emptyData="">
-    <div> There Are No Data</div>
+    <div class="empty-date"> There Are No Data</div>
 </ng-template>
 
 <div class="container" *ngIf="!(userService.isDataEmpty$ | async); else emptyData">
