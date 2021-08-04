@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import { onMainContentChange } from "./shared/animation/menu-animation";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [onMainContentChange]
 })
 export class AppComponent {
-  title = 'bogdan-test-task';
+  onSideNavChange: boolean = true;
+
+  changeSideNave() {
+    this.onSideNavChange = !this.onSideNavChange;
+  }
 }

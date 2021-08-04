@@ -1,0 +1,17 @@
+<div class="action-progress" *ngIf="this.userService.isLoading$ | async">
+  <mat-spinner></mat-spinner>
+</div>
+
+<ng-template #emptyData="">
+    <div> There Are No Data</div>
+</ng-template>
+
+<div class="container" *ngIf="!(userService.isDataEmpty$ | async); else emptyData">
+  <h1>Users</h1>
+  <app-user
+    *ngFor='let user of this.userService.users$ | async'
+    [user]='user'
+    (onClick)="changeActivated($event)"
+  ></app-user>
+</div>
+

@@ -1,0 +1,18 @@
+<mat-card class="post-card">
+  <mat-card-header>
+    <mat-card-title>{{post.title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{post.body}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions *ngIf='isActive$; else active'>
+    <button (click)='deactivate(post)' class='active' mat-button>DEACTIVATE</button>
+  </mat-card-actions>
+  <ng-template #active>
+    <mat-card-actions>
+      <button (click)='activate(post)' mat-button>ACTIVATE</button>
+    </mat-card-actions>
+  </ng-template>
+</mat-card>
