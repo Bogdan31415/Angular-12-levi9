@@ -40,7 +40,7 @@ export function itemsSelector<K extends { isActive: boolean }, T extends ItemSta
 export function activeSelector<K extends { isActive: boolean }, T extends ItemStateInterface<K>>(storeName: string) {
   return createSelector(
     (state: AppStateInterface) => state[storeName],
-    (itemState: T) => itemState.data.filter((item) => item.isActive)
+    (itemState: T) => itemState.data?.filter((item) => item.isActive)
   )
 }
 

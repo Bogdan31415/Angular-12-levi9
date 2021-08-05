@@ -5,7 +5,11 @@ import { takeUntil } from "rxjs/operators";
 import { cloneDeep } from "lodash";
 
 import { selectData, selectIsActivatedEmpty } from "../store/selectors";
-import { setItemsActivetedAction, setPostsActivetedAction } from "../store/actions/activated-user.action";
+import {
+  setItemsActivetedAction,
+  setPhotosActivetedAction,
+  setPostsActivetedAction
+} from "../store/actions/activated-user.action";
 import { AppStateInterface, ItemStateInterface } from "../types/app-state.interface";
 import { ItemService } from "./item.service";
 
@@ -47,6 +51,9 @@ export class BaseItemSelfService<T extends { isActive: boolean , id:number }> im
     }
     else if(this.type === "posts"){
       this.store.dispatch(setPostsActivetedAction<T>()({ items: updateItems }));
+    }
+    else{
+      this.store.dispatch(setPhotosActivetedAction<T>()({ items: updateItems }));
     }
   }
 

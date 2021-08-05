@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { UserListComponent } from "./users/components/user-list/user-list.component";
 import { PostListComponent } from "./posts/components/post-list/post-list.component";
+import { PhotoListComponent } from "./photos/components/photo-list/photo-list.component";
+import { ActivatedListComponent } from "./activated/components/activated-list/activated-list.component";
 
 const routes: Routes = [
   {
@@ -12,8 +14,7 @@ const routes: Routes = [
   },
   {
     path: "activated",
-    loadChildren: () =>
-      import("./activated/activated.module").then(m => m.ActivatedModule)
+    component:ActivatedListComponent
   },
   {
     path: "users",
@@ -25,8 +26,7 @@ const routes: Routes = [
   },
   {
     path: "photos",
-    loadChildren: () =>
-      import("./photos/photos.module").then(m => m.PhotosModule)
+    component: PhotoListComponent
   }
 ]
 

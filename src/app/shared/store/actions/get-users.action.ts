@@ -34,3 +34,20 @@ export function getPostSuccessAction<T>() {
     props<{ items: T[] }>()
   )
 }
+
+export function getPhotosSuccessAction<T>() {
+  return createAction(
+    ActionTypes.GET_PHOTOS_SUCCESS,
+    props<{ items: T[] }>()
+  )
+}
+
+export const getPhotosFailureAction = createAction(
+  ActionTypes.GET_PHOTOS_FAILURE,
+  props<{ error: string }>()
+)
+
+export const getPhotosAction = createAction(
+  ActionTypes.GET_PHOTOS,
+  props<{ itemType: string }>()
+)

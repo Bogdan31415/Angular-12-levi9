@@ -16,3 +16,10 @@ export function setPostsActivetedAction<T>() {
     props<{ items: T[] }>()
   )
 }
+
+export function setPhotosActivetedAction<T>() {
+  return createAction(
+    ActionTypes.ACTIVATED_PHOTOS,
+    props<{ items: T[] }>()
+  )
+}

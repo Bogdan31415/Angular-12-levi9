@@ -1,19 +1,30 @@
-<div class="container" *ngIf="!(activatedUserService.isDataEmpty$ | async); else emptyData">
-  <h1>Users</h1>
-  <app-user
-    *ngFor='let user of this.activatedUserService.items$ | async'
-    [item]='user'
-    (onClick)="changeActivated($event)"
-  ></app-user>
-</div>
+<div>
+  <div class="container" *ngIf="!(activatedUserService.isDataEmpty$ | async); else emptyData">
+    <h1>Users</h1>
+    <app-user
+      *ngFor='let user of this.activatedUserService.items$ | async'
+      [item]='user'
+      (onClick)="changeActivated($event)"
+    ></app-user>
+  </div>
 
-<div class="container" *ngIf="!(activatedPostService.isDataEmpty$ | async); else emptyData">
-  <h1>Post</h1>
-  <app-post
-    *ngFor='let post of this.activatedPostService.items$ | async'
-    [item]='post'
-    (onClick)="changePostActivated($event)"
-  ></app-post>
+  <div class="container" *ngIf="!(activatedPostService.isDataEmpty$ | async); else emptyData">
+    <h1>Post</h1>
+    <app-post
+      *ngFor='let post of this.activatedPostService.items$ | async'
+      [item]='post'
+      (onClick)="changePostActivated($event)"
+    ></app-post>
+  </div>
+
+  <div class="container" *ngIf="!(activatedPhotoService.isDataEmpty$ | async); else emptyData">
+    <h1>Photo</h1>
+    <app-photo
+      *ngFor='let photo of this.activatedPhotoService.items$ | async'
+      [item]='photo'
+      (onClick)="changePhostoActivated($event)"
+    ></app-photo>
+  </div>
 </div>
 
 <ng-template #emptyData="">

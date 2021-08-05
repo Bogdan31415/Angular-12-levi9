@@ -1,1 +1,17 @@
-<p>photo-list works!</p>
+<div class="action-progress" *ngIf="this.photoSelfService.isLoading$ | async">
+  <mat-spinner></mat-spinner>
+</div>
+
+<ng-template #emptyData="">
+  <div class="empty-date"> There Are No Data</div>
+</ng-template>
+
+<h1>Posts</h1>
+<div fxLayout="row wrap" *ngIf="!(photoSelfService.isDataEmpty$ | async); else emptyData">
+  <app-photo fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%"
+            *ngFor='let post of this.photoSelfService.items$ | async'
+            [item]='post'
+            (onClick)="changeActivated($event)"
+  ></app-photo>
+</div>
+

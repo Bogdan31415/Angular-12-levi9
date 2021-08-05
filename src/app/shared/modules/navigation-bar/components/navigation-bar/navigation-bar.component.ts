@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { PAGES } from "./config/navigation.config";
 import { animateText, onSideNavChange } from "../../../../animation/menu-animation";
 
@@ -14,9 +14,6 @@ export class NavigationBarComponent {
   public pages = PAGES
   public linkText: boolean = true;
 
-
-  constructor() {
-  }
 
   public onSinenavToggle() {
     this.linkText = !this.linkText;

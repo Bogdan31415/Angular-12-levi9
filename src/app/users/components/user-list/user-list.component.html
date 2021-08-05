@@ -6,8 +6,8 @@
     <div class="empty-date"> There Are No Data</div>
 </ng-template>
 
+<h1>Users</h1>
 <div class="container" *ngIf="!(userService.isDataEmpty$ | async); else emptyData">
-  <h1>Users</h1>
   <app-user
     *ngFor='let user of this.userService.items$ | async'
     [item]='user'

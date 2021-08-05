@@ -1,3 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
 .empty-date {
   padding-top: 15px;
   text-align: center;

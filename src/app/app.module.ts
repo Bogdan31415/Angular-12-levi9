@@ -14,6 +14,8 @@ import { MaterialModule } from "./material.module";
 import { HeaderModule } from "./shared/modules/header/header.module";
 import { UsersModule } from "./users/users.module";
 import { PostsModule } from "./posts/posts.module";
+import { PhotosModule } from "./photos/photos.module";
+import { ActivatedModule } from "./activated/activated.module";
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { PostsModule } from "./posts/posts.module";
     AppRoutingModule,
     UsersModule,
     PostsModule,
+    PhotosModule,
+    ActivatedModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),

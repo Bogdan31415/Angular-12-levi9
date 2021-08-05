@@ -1,11 +1,12 @@
 import { User } from "./user.entity";
 import { Post } from "./post.entity";
+import { Photo } from "./photo.entity";
 
 export interface AppStateInterface {
   users: ItemStateInterface<User>,
-  posts: ItemStateInterface<Post>
+  posts: ItemStateInterface<Post>,
+  photos: ItemStateInterface<Photo>,
 }
-
 
 export interface ItemStateInterface<T> {
   isLoading: boolean
