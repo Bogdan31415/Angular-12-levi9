@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
+import { BaseCardComponent } from "../../../components/base-card.component";
 import { Photo } from "../../../../types/photo.entity";
 
 @Component({
@@ -7,19 +8,5 @@ import { Photo } from "../../../../types/photo.entity";
   templateUrl: './photo.component.html',
   styleUrls: ['./photo.component.scss']
 })
-export class PhotoComponent implements OnInit {
-  @Input() photo: Photo;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  public deactivate(photo: Photo) {
-
-  }
-
-  public activate(photo: Photo) {
-
-  }
+export class PhotoComponent extends BaseCardComponent<Photo> {
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { User } from "../../../../types/user.entity";
 import { BaseCardComponent } from "../../../components/base-card.component";
@@ -9,6 +9,4 @@ import { BaseCardComponent } from "../../../components/base-card.component";
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent extends BaseCardComponent<User>{
-  @Input() user: User;
-
 }

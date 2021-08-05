@@ -18,7 +18,6 @@ export class PostListComponent implements OnInit {
     this.postService.fetchData();
     this.postService.initializeValues()
     this.postService.initializeListeners(postsSelector)
-    console.log(this.postService.posts$)
   }
 
   public changeActivated(post: Post) {

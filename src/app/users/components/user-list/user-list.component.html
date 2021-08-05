@@ -10,7 +10,7 @@
   <h1>Users</h1>
   <app-user
     *ngFor='let user of this.userService.users$ | async'
-    [user]='user'
+    [item]='user'
     (onClick)="changeActivated($event)"
   ></app-user>
 </div>

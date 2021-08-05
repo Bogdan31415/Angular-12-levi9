@@ -10,7 +10,7 @@
 <div fxLayout="row wrap" *ngIf="!(postService.isDataEmpty$ | async); else emptyData">
   <app-post fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%"
     *ngFor='let post of this.postService.posts$ | async'
-    [post]='post'
+    [item]='post'
     (onClick)="changeActivated($event)"
   ></app-post>
 </div>
