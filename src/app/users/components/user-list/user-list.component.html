@@ -9,7 +9,7 @@
 <div class="container" *ngIf="!(userService.isDataEmpty$ | async); else emptyData">
   <h1>Users</h1>
   <app-user
-    *ngFor='let user of this.userService.users$ | async'
+    *ngFor='let user of this.userService.items$ | async'
     [item]='user'
     (onClick)="changeActivated($event)"
   ></app-user>

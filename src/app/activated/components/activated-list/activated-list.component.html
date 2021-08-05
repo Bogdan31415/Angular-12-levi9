@@ -1,10 +1,19 @@
 <div class="container" *ngIf="!(activatedUserService.isDataEmpty$ | async); else emptyData">
   <h1>Users</h1>
   <app-user
-    *ngFor='let user of this.activatedUserService.users$ | async'
-    [user]='user'
+    *ngFor='let user of this.activatedUserService.items$ | async'
+    [item]='user'
     (onClick)="changeActivated($event)"
   ></app-user>
+</div>
+
+<div class="container" *ngIf="!(activatedPostService.isDataEmpty$ | async); else emptyData">
+  <h1>Post</h1>
+  <app-post
+    *ngFor='let post of this.activatedPostService.items$ | async'
+    [item]='post'
+    (onClick)="changePostActivated($event)"
+  ></app-post>
 </div>
 
 <ng-template #emptyData="">

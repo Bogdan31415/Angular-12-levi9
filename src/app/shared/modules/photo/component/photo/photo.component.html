@@ -1,15 +1,15 @@
-<mat-card>
+<!--<mat-card>
   <mat-card-header>
-    <div mat-card-avatar style="background-image: url({{photo.thumbnailUrl}}); background-size: cover;"></div>
-    <mat-card-title>{{photo.title}}</mat-card-title>
+    &lt;!&ndash;<div mat-card-avatar style="background-image: url({{item.thumbnailUrl}}); background-size: cover;"></div>&ndash;&gt;
+    <mat-card-title>{{item.title}}</mat-card-title>
   </mat-card-header>
   <img mat-card-image src={{photo.url}} alt="Photo of a Shiba Inu">
-  <mat-card-actions *ngIf='photo.isActive; else active'>
-    <button (click)='deactivate(photo)' class='active' mat-button>DEACTIVATE</button>
+  <mat-card-actions *ngIf='item.isActive; else active'>
+    <button (click)='deactivate(item)' class='active' mat-button>DEACTIVATE</button>
   </mat-card-actions>
   <ng-template #active>
     <mat-card-actions>
-      <button (click)='activate(photo)' mat-button>ACTIVATE</button>
+      <button (click)='activate(item)' mat-button>ACTIVATE</button>
     </mat-card-actions>
   </ng-template>
-</mat-card>
+</mat-card>-->

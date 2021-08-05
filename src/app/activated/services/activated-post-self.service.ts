@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Store } from "@ngrx/store";
 
-import { User } from "../../shared/types/user.entity";
 import { BaseItemSelfService } from "../../shared/services/base-item-self.service";
+import { Post } from "../../shared/types/post.entity";
 import { ItemService } from "../../shared/services/item.service";
 
 @Injectable()
-export class ActivatedUserSelfService extends BaseItemSelfService<User>{
-  public type = "users"
+export class ActivatedPostSelfService extends BaseItemSelfService<Post>{
+  public type = "post"
 
   constructor(
     store: Store,
-    itemService: ItemService<User>
+    itemService: ItemService<Post>
   ) {
     super(store, itemService)
   }

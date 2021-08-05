@@ -2,7 +2,8 @@ import { Component, OnInit, Self } from '@angular/core';
 
 import { UserSelfService } from "../../services/user-self.service";
 import { User } from "../../../shared/types/user.entity";
-import { usersSelector } from "../../store/selectors";
+import { itemsSelector } from "../../../shared/store/selectors";
+import { ItemStateInterface } from "../../../shared/types/app-state.interface";
 
 @Component({
   selector: 'app-user-list',
@@ -15,12 +16,12 @@ export class UserListComponent implements OnInit {
   constructor(@Self() readonly userService: UserSelfService) { }
 
   ngOnInit(): void {
-    this.userService.fetchData();
-    this.userService.initializeValues()
-    this.userService.initializeListeners(usersSelector)
+      this.userService.fetchData();
+      this.userService.initializeValues();
+      this.userService.initializeListeners(itemsSelector<User, ItemStateInterface<User>>("users"));
   }
 
   public changeActivated(user: User) {
-    this.userService.changeUserActivated(user)
+    this.userService.changeItemActivated(user);
   }
 }

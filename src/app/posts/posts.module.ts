@@ -5,13 +5,13 @@ import { UserModule } from "../shared/modules/user/user.module";
 import { HttpClientModule } from "@angular/common/http";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { StoreModule } from "@ngrx/store";
+import { FlexModule } from "@angular/flex-layout";
 
 import { PostListComponent } from './components/post-list/post-list.component';
-import { GetPostsEffect } from "./store/effects/get-posts.effect";
 import { PostModule } from "../shared/modules/post/post.module";
-import { PostService } from "./services/post.service";
-import { reducers } from "./store/reducers";
-import { FlexModule } from "@angular/flex-layout";
+import { ItemService } from "../shared/services/item.service";
+import { postReducers } from "../shared/store/reducers";
+import { GetPostEffect } from "../shared/store/effects/get-post.effect";
 
 
 @NgModule({
@@ -20,14 +20,14 @@ import { FlexModule } from "@angular/flex-layout";
   ],
   imports: [
     CommonModule,
-    StoreModule.forFeature('posts', reducers),
-    EffectsModule.forFeature([GetPostsEffect]),
+    StoreModule.forFeature('posts', postReducers),
+    EffectsModule.forFeature([GetPostEffect]),
     UserModule,
     HttpClientModule,
     MatProgressSpinnerModule,
     PostModule,
     FlexModule
   ],
-  providers: [PostService]
+  providers: [ItemService]
 })
 export class PostsModule {}
