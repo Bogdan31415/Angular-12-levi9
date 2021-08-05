@@ -7,7 +7,7 @@ import { map } from "rxjs/operators";
 
 @Injectable()
 export class ItemService<T> {
-  private _type: string
+  private _type!: string
 
   constructor(private http: HttpClient) { }
 

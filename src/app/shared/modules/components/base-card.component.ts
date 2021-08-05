@@ -3,7 +3,7 @@ import { cloneDeep } from "lodash";
 
 @Directive()
 export abstract class BaseCardComponent<T extends { isActive: boolean }> {
-  @Input() item: T;
+  @Input() item!: T;
   @Output() onClick = new EventEmitter<T>();
 
   public deactivate(item: T): void {

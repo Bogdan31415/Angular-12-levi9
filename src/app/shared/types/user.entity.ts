@@ -15,7 +15,7 @@ export interface User {
   username: string,
   email: string,
   phone: string,
-  website: string
+  website: string,
   address: Address,
   company: Company,
   isActive: boolean

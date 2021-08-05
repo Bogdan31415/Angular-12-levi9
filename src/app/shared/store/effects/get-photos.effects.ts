@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core'
-import { Actions, createEffect, ofType } from '@ngrx/effects'
-import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators'
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { EMPTY, of } from 'rxjs';
 import { select, Store } from "@ngrx/store";
 

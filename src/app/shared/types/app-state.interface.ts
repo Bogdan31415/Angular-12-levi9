@@ -10,8 +10,8 @@ export interface AppStateInterface {
 
 export interface ItemStateInterface<T> {
   isLoading: boolean
-  loaded: boolean,
+  loaded: boolean
   error: string | null
   data: T[] | null
-  itemType: string
+  itemType: string | null
 }

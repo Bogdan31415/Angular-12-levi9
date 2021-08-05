@@ -15,7 +15,7 @@ import { ItemService } from "./item.service";
 
 @Injectable()
 export class BaseItemSelfService<T extends { isActive: boolean , id:number }> implements OnDestroy {
-  public type: string
+  public type!: string
   public items$!: Observable<T[] | null>;
   public isDataEmpty$!: Observable<boolean>;
 
