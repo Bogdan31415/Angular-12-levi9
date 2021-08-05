@@ -11,6 +11,7 @@ import { GetPostsEffect } from "./store/effects/get-posts.effect";
 import { PostModule } from "../shared/modules/post/post.module";
 import { PostService } from "./services/post.service";
 import { reducers } from "./store/reducers";
+import { FlexModule } from "@angular/flex-layout";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { reducers } from "./store/reducers";
     UserModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    PostModule
+    PostModule,
+    FlexModule
   ],
   providers: [PostService]
 })

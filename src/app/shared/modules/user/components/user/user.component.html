@@ -10,7 +10,7 @@
     <p> Street: {{user.address.street}} </p>
   </mat-card-content>
   <mat-card-actions *ngIf='user.isActive; else active'>
-    <button mat-button color="warn" (click)='deactivate(user)' class='active'>DEACTIVATE</button>
+    <button mat-button color="warn" (click)='deactivate(user)'>DEACTIVATE</button>
   </mat-card-actions>
   <ng-template #active>
     <mat-card-actions>

@@ -6,9 +6,9 @@
   <div class="empty-date"> There Are No Data</div>
 </ng-template>
 
-<div class="container" *ngIf="!(postService.isDataEmpty$ | async); else emptyData">
-  <h1>Posts</h1>
-  <app-post
+<h1>Posts</h1>
+<div fxLayout="row wrap" *ngIf="!(postService.isDataEmpty$ | async); else emptyData">
+  <app-post fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%"
     *ngFor='let post of this.postService.posts$ | async'
     [post]='post'
     (onClick)="changeActivated($event)"

@@ -3,7 +3,6 @@ import { select, Store } from "@ngrx/store";
 import { getUsersAction } from "../store/actions/get-users.action";
 import { Observable } from "rxjs";
 
-import { User } from "../../shared/types/user.entity";
 import { errorSelector, isLoadingSelector, selectIsDataEmpty } from "../store/selectors";
 import { BaseUserSelfService } from "../../shared/services/base-user-self.service";
 
